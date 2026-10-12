@@ -551,7 +551,7 @@
     });
   });
 
-  var KEY = "";
+  var GF = {"action": "https://docs.google.com/forms/d/e/1FAIpQLSfgwMMqU7fGsl1GLIn27ceWgsV69qh-dgnqe7bb-4MLcuGIJA/formResponse", "msg": "entry.1455918411", "contact": "entry.1998263355"};
   var form = document.getElementById('ask-form'), status = document.getElementById('f-status'), send = document.getElementById('f-send');
   form.addEventListener('submit', function(e){
     e.preventDefault();
@@ -559,14 +559,12 @@
     var msg = form.message.value.trim(), contact = form.contact.value.trim();
     if (!msg || !contact) { status.className = 'form-status err'; status.textContent = 'Заполните сообщение и контакт для ответа.'; return; }
     if (form.botcheck.checked) return;
-    if (!KEY) { status.className = 'form-status err'; status.textContent = 'Форма скоро заработает. Попробуйте, пожалуйста, позже.'; return; }
+    if (!GF.action) { status.className = 'form-status err'; status.textContent = 'Форма скоро заработает. Попробуйте, пожалуйста, позже.'; return; }
     send.disabled = true; send.textContent = 'Отправляем…';
-    fetch('https://api.web3forms.com/submit', {
-      method: 'POST', headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-      body: JSON.stringify({ access_key: KEY, subject: 'Ilmiya — сообщение со страницы поддержки', from_name: 'Ilmiya', contact: contact, message: msg, botcheck: false })
-    }).then(function(r){ return r.json(); }).then(function(d){
-      if (d && d.success) { form.reset(); status.className = 'form-status ok'; status.textContent = 'Спасибо! Сообщение отправлено, мы ответим вам.'; }
-      else throw new Error();
+    var body = new URLSearchParams();
+    body.append(GF.msg, msg); body.append(GF.contact, contact);
+    fetch(GF.action, { method: 'POST', mode: 'no-cors', body: body }).then(function(){
+      form.reset(); status.className = 'form-status ok'; status.textContent = 'Спасибо! Сообщение отправлено, мы ответим вам.';
     }).catch(function(){
       status.className = 'form-status err'; status.textContent = 'Не удалось отправить. Проверьте интернет и попробуйте ещё раз.';
     }).then(function(){ send.disabled = false; send.textContent = 'Отправить'; });
