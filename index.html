@@ -551,6 +551,18 @@
     });
   });
 
+  var VS = {"action": "https://docs.google.com/forms/d/e/1FAIpQLScalrPuimfkVNkZliWo0bqDy74AyvTSTt1Cy0CQMfUbr4Ep_A/formResponse", "src": "entry.2146016666"};
+  (function(){
+    if (!VS.action) return;
+    try { if (sessionStorage.getItem('ilm_v')) return; sessionStorage.setItem('ilm_v', '1'); } catch (e) {}
+    var ref = '';
+    try { ref = document.referrer ? new URL(document.referrer).hostname.replace(/^www\./, '') : ''; } catch (e) {}
+    if (!ref || ref === location.hostname) ref = 'прямой заход';
+    var dev = /Mobi|Android|iPhone|iPad/i.test(navigator.userAgent) ? 'телефон' : 'компьютер';
+    var src = (/[?&]test/.test(location.search) ? 'ТЕСТ · ' : '') + ref + ' · ' + dev;
+    var b = new URLSearchParams(); b.append(VS.src, src);
+    try { fetch(VS.action, { method: 'POST', mode: 'no-cors', body: b, keepalive: true }); } catch (e) {}
+  })();
   var GF = {"action": "https://docs.google.com/forms/d/e/1FAIpQLSfgwMMqU7fGsl1GLIn27ceWgsV69qh-dgnqe7bb-4MLcuGIJA/formResponse", "msg": "entry.1455918411", "contact": "entry.1998263355"};
   var form = document.getElementById('ask-form'), status = document.getElementById('f-status'), send = document.getElementById('f-send');
   form.addEventListener('submit', function(e){
