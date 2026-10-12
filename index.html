@@ -361,6 +361,21 @@
     *{transition:none !important;animation:none !important}
   }
 
+  /* ---------- помощь с USDT ---------- */
+  .help{
+    margin-top:18px;padding:20px 22px 18px;
+    border:1px solid var(--hair-soft);border-left:2px solid var(--gold-bot);
+    background:rgba(12,42,50,.45);
+  }
+  .help h3{
+    font-family:var(--f-label);font-size:11.5px;letter-spacing:.14em;
+    text-transform:uppercase;color:var(--gold);margin:0 0 12px;font-weight:600;
+  }
+  .help p{color:var(--muted);font-size:16.5px}
+  .help p:last-child{margin-bottom:0}
+  .help .marks{margin:4px 0 14px}
+  @media (max-width:480px){.help{padding:18px 16px 16px}}
+
   html,body{overflow-x:clip}
   :root{color-scheme:dark}
   .qr{background:#FCF9F3;border:0;padding:6px}
@@ -420,7 +435,6 @@
       <li>Перевод и озвучка новых уроков</li>
       <li>Сверка перевода и монтаж</li>
       <li>Сервисы и инструменты, на которых держится работа</li>
-      <li>Новые курсы — следующие книги и шейхи</li>
     </ul>
   </section>
 
@@ -462,29 +476,21 @@
       </div>
     </div>
 
-    <details>
-      <summary>Если вы никогда не пользовались USDT</summary>
-      <div class="details-body">
-        <p>Самый простой путь — кошелёк Wallet внутри Telegram: он открывается в два нажатия, USDT в нём покупается с банковской карты, а отправка по адресу занимает минуту. Выбирайте сеть TON.</p>
-        <p>Второй путь — любая крупная биржа: купить USDT и вывести на адрес в сети TON или TRC-20.</p>
-        <p>Не получается — напишите нам через форму ниже, поможем разобраться.</p>
-      </div>
-    </details>
+    <div class="help">
+      <h3>Не умеете отправлять USDT?</h3>
+      <p>Это проще, чем кажется. Два самых простых способа:</p>
+      <ul class="marks">
+        <li>Через Telegram<small>Откройте встроенный кошелёк Wallet, купите USDT с банковской карты и отправьте на адрес в сети TON.</small></li>
+        <li>Через биржу<small>Купите USDT на любой крупной бирже и выведите на адрес в сети TON или TRC-20.</small></li>
+      </ul>
+      <p>Если не получается — напишите нам через форму ниже, подскажем по шагам.</p>
+    </div>
   </section>
 
-    <section>
-    <h2>Поддержать бесплатно</h2>
-    <ul class="marks">
-      <li>Подписаться на канал и включить уведомления</li>
-      <li>Поделиться уроком с тем, кому он будет полезен</li>
-      <li>Досматривать уроки до конца<small>От этого зависит, кому YouTube покажет их дальше</small></li>
-      <li>Оставить комментарий или вопрос под уроком</li>
-    </ul>
-  </section>
 
   <section id="ask">
     <h2>Написать нам</h2>
-    <p style="color:var(--muted);font-size:17px;margin-bottom:18px">Вопрос о поддержке, предложение или просьба — напишите, и мы ответим по контакту, который вы оставите.</p>
+    <p style="color:var(--muted);font-size:17px;margin-bottom:18px">Вопрос о поддержке, помощь с отправкой USDT или предложение — напишите, и мы ответим по контакту, который вы оставите.</p>
     <form class="ask" id="ask-form" novalidate>
       <div class="field">
         <label for="f-msg">Сообщение</label>
@@ -499,6 +505,16 @@
       <p class="form-status" id="f-status" role="status" aria-live="polite"></p>
       <p class="form-note">Контакт используем только для того, чтобы ответить вам.</p>
     </form>
+  </section>
+
+  <section>
+    <h2>Поддержать бесплатно</h2>
+    <ul class="marks">
+      <li>Подписаться на канал и включить уведомления</li>
+      <li>Поделиться уроком с тем, кому он будет полезен</li>
+      <li>Досматривать уроки до конца<small>От этого зависит, кому YouTube покажет их дальше</small></li>
+      <li>Оставить комментарий или вопрос под уроком</li>
+    </ul>
   </section>
 
   <footer>
